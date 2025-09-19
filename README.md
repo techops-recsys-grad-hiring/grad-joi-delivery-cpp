@@ -119,5 +119,6 @@ Unit tests can be executed as follows.
 - Run unit tests only
 
   ```shell
-  $ ctest .
+  cd build/
+  ctest .
   ```
