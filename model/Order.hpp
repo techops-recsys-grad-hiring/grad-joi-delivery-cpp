@@ -1,9 +1,7 @@
-#ifndef  ORDER_H
-#define ORDER_H
+#pragma once
 
 class Order {
-public:    Order() {}
-    // Add member variables and methods as needed
+ public:
+  Order() {}
+  // Add member variables and methods as needed
 };
-
-#endif // ORDER_H
