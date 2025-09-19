@@ -116,9 +116,16 @@ cmake --build build
 
 Unit tests can be executed as follows.
 
-- Run unit tests only
+- Run unit tests.
 
   ```shell
   cd build/
   ctest .
+  ```
+
+- Opitonally, Use `--verbose` flag with ctest for detailed test results.
+
+```shell
+  cd build/
+  ctest . --verbose
   ```
