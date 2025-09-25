@@ -11,4 +11,5 @@ include_directories(include)
 add_subdirectory(src/problems)
 
 enable_testing()
+add_subdirectory(vendor/gtest)
 add_subdirectory(tests)
