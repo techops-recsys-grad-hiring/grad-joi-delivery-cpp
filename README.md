@@ -64,48 +64,23 @@ Your expertise will directly impact how quickly and reliably customers receive t
 
 
 ## Tech Requirements
-The project makes use of Conan to help you out carrying some common tasks such as building the project or running it.
-Technically, Conan is not must have, but in order to simplify environment setup, following guideline is based on Conan.
 
 1. CMake 3.23 above is **required**.
 
 Check [here](https://cmake.org/download/) for installation if you get a older version.
 
-2. Conan 2.0 above is **required**.
+### Clone the project
 
-Check [here](https://docs.conan.io/2/installation.html) for installation if you get a older version.
+```shell
+git clone --recurse-submodules https://github.com/techops-recsys-grad-hiring/grad-joi-delivery-cpp
+```
+
+The `--recurse-submodules` flag will make sure the project dependencies are pulled as well.
 
 ### Build the project
 
-1. Setup a profile for **Conan**, if this is the first time you get Conan 2.x run on your machine.
-
 ```shell
-conan profile detect
-```
-
-Now, assuming you are already at the root of this repository, follow:
-
-2. Install or build the dependencies
-
-
-```shell
-conan install . --output-folder=build -s build_type=Debug --build=missing
-```
-
-3. Generate build system for this repository
-
-```shell
-cmake --preset conan-debug
-```
-
-> ☀️ If you are building on **Windows with Visual Studio** (Generator), please use `conan-default` instead of, like:
->
-> ```shell
-> cmake --preset conan-default
-> ```
-
-4. **Build this repository**
-```shell
+cmake -B build -S .
 cmake --build build
 ```
 
@@ -118,14 +93,14 @@ Unit tests can be executed as follows.
 
 - Run unit tests.
 
-  ```shell
-  cd build/
-  ctest .
-  ```
+```shell
+cd build/
+ctest
+```
 
 - Opitonally, Use `--verbose` flag with ctest for detailed test results.
 
 ```shell
-  cd build/
-  ctest . --verbose
-  ```
+cd build/
+ctest . --verbose
+```
