@@ -49,7 +49,7 @@ Your expertise will directly impact how quickly and reliably customers receive t
 | StoreId | ZoneId | Items               |
 |---------|--------|---------------------|
 |  1      | ZoneA  | [Milk, Eggs, Bread] |
-|  2      | ZoneB  | [Bread, Milks ]     |
+|  2      | ZoneB  | [Bread, Milk ]     |
 |  3      | ZoneC  | [Juice, Bread ]     |
 
 **Items**
