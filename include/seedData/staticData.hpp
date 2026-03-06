@@ -31,6 +31,6 @@ struct StaticData {
     {"1", "Notebook", "", 15},
     {"2", "Keyboard", "", 50},
     {"3", "Mouse", "", 25},
-    {"3", "Monitor", "", 75}
+    {"4", "Monitor", "", 75}
   };
 };
