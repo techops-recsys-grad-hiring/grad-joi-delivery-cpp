@@ -1,6 +1,19 @@
-#include <iostream>
+#pragma once
 
-enum class LoyaltyTier { DIAMOND = 10, GOLD = 5, SILVER = 3 };
+namespace tw::delivery {
+  enum class LoyaltyTier { DIAMOND, GOLD, SILVER };
 
-// Helper function to get discount value
-inline int getDiscount(LoyaltyTier tier) { return static_cast<int>(tier); }
+  // Helper function to get discount value
+  [[nodiscard]] inline constexpr int getDiscount(const LoyaltyTier tier) noexcept {
+    switch (tier) {
+      case LoyaltyTier::DIAMOND:
+        return 10;
+      case LoyaltyTier::GOLD:
+        return 5;
+      case LoyaltyTier::SILVER:
+        return 3;
+    }
+
+    return 0;
+  }
+}
