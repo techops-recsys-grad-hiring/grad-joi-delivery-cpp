@@ -1,7 +1,5 @@
 #pragma once
 
-class Order {
- public:
-  Order() {}
+struct Order {
   // Add member variables and methods as needed
 };
