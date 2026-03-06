@@ -1,7 +1,5 @@
 add_executable(tw_delivery main.cpp)
 
-target_include_directories(tw_delivery PRIVATE
-    ${CMAKE_SOURCE_DIR}/include
-)
+target_link_libraries(tw_delivery PRIVATE tw::delivery::lib)
 
 add_executable(tw::delivery ALIAS tw_delivery)

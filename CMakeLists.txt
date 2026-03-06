@@ -8,5 +8,12 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 enable_testing()
 
+add_library(tw_delivery_lib INTERFACE)
+target_include_directories(tw_delivery_lib INTERFACE
+    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+add_library(tw::delivery::lib ALIAS tw_delivery_lib)
+
 add_subdirectory(src)
 add_subdirectory(tests)

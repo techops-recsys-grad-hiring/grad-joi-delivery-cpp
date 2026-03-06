@@ -11,10 +11,7 @@ add_executable(tw_delivery_test CategoryTest.cpp)
 
 target_link_libraries(tw_delivery_test PRIVATE
     gtest_main
-)
-
-target_include_directories(tw_delivery_test PRIVATE
-    ${CMAKE_SOURCE_DIR}/include
+    tw::delivery::lib
 )
 
 add_executable(tw::delivery::test ALIAS tw_delivery_test)
