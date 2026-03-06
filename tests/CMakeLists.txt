@@ -7,15 +7,17 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-add_executable(CategoryTest CategoryTest.cpp)
+add_executable(tw_delivery_test CategoryTest.cpp)
 
-target_link_libraries(CategoryTest PRIVATE
+target_link_libraries(tw_delivery_test PRIVATE
     gtest_main
 )
 
-target_include_directories(CategoryTest PRIVATE
+target_include_directories(tw_delivery_test PRIVATE
     ${CMAKE_SOURCE_DIR}/include
 )
 
+add_executable(tw::delivery::test ALIAS tw_delivery_test)
+
 include(GoogleTest)
-gtest_discover_tests(CategoryTest)
+gtest_discover_tests(tw_delivery_test)
