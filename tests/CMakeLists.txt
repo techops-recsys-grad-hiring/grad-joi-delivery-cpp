@@ -1,8 +1,8 @@
 include(FetchContent)
 FetchContent_Declare(
-        googletest
-        GIT_REPOSITORY https://github.com/google/googletest.git
-        GIT_TAG v1.12.0
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG v1.12.0
 )
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
@@ -17,4 +17,5 @@ target_include_directories(CategoryTest PRIVATE
     ${CMAKE_SOURCE_DIR}/include
 )
 
-add_test(NAME CategoryTest COMMAND CategoryTest)
+include(GoogleTest)
+gtest_discover_tests(CategoryTest)
