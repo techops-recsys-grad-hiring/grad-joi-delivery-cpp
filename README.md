@@ -24,7 +24,7 @@ Your expertise will directly impact how quickly and reliably customers receive t
 | Domain Name     | Attributes                                           |
 |-----------------|------------------------------------------------------|
 | Customer        | customerId, firstName, lastName, loyaltyPoints, tier |
-| Delivery        | id, timeInMinutes, diatance                          |
+| Delivery        | id, timeInMinutes, distance                          |
 | DeliveryPartner | id, name, deliveries                                 |
 | Item            | id, name, description, price, category               |
 | Store           | storeId, zone, items                                 |
@@ -48,9 +48,9 @@ Your expertise will directly impact how quickly and reliably customers receive t
 
 | StoreId | ZoneId | Items               |
 |---------|--------|---------------------|
-|  1      | ZoneA  | [Milk, Eggs, Bread] |
-|  2      | ZoneB  | [Bread, Milk ]     |
-|  3      | ZoneC  | [Juice, Bread ]     |
+| 1       | ZoneA  | [Milk, Eggs, Bread] |
+| 2       | ZoneB  | [Bread, Milk ]      |
+| 3       | ZoneC  | [Juice, Bread ]     |
 
 **Items**
 
@@ -69,44 +69,22 @@ Technically, Conan is not must have, but in order to simplify environment setup,
 
 1. CMake 3.23 above is **required**.
 
-Check [here](https://cmake.org/download/) for installation if you get a older version.
-
-2. Conan 2.0 above is **required**.
-
-Check [here](https://docs.conan.io/2/installation.html) for installation if you get a older version.
+Check [here](https://cmake.org/download/) for installation if you get an older version.
 
 ### Build the project
 
-1. Setup a profile for **Conan**, if this is the first time you get Conan 2.x run on your machine.
+This project uses standard Modern CMake and automatically manages lightweight dependencies (e.g., GoogleTest) via `FetchContent`.
+
+#### 1. Generate build system for this repository
 
 ```shell
-conan profile detect
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 ```
 
-Now, assuming you are already at the root of this repository, follow:
-
-2. Install or build the dependencies
-
+#### 2. Build this repository
 
 ```shell
-conan install . --output-folder=build -s build_type=Debug --build=missing
-```
-
-3. Generate build system for this repository
-
-```shell
-cmake --preset conan-debug
-```
-
-> ☀️ If you are building on **Windows with Visual Studio** (Generator), please use `conan-default` instead of, like:
->
-> ```shell
-> cmake --preset conan-default
-> ```
-
-4. **Build this repository**
-```shell
-cmake --build build
+cmake --build build -j4
 ```
 
 *Note:* ☀️ If you are building on **Windows with Visual Studio** (Generator), and prefer IDE, you could find a generate project file in `build` directory and open it with Visual Studio for building and test running.
@@ -114,18 +92,18 @@ cmake --build build
 
 ### Run the tests
 
-Unit tests can be executed as follows.
+We use CTest to manage our test suites.
 
 - Run unit tests.
 
-  ```shell
-  cd build/
-  ctest .
-  ```
+```shell
+cd build/
+ctest
+```
 
-- Opitonally, Use `--verbose` flag with ctest for detailed test results.
+- Optionally, Use `--verbose` flag with ctest for detailed test results.
 
 ```shell
-  cd build/
-  ctest . --verbose
-  ```
+cd build/
+ctest . --verbose
+```
