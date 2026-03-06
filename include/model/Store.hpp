@@ -3,8 +3,10 @@
 #include <string>
 #include <vector>
 
-struct Store {
-  std::string storeId;
-  std::string zone;
-  std::vector<std::string> items;
-};
+namespace tw::delivery {
+  struct Store {
+    std::string storeId;
+    std::string zone;
+    std::vector<std::string> items;
+  };
+}

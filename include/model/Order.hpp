@@ -1,5 +1,7 @@
 #pragma once
 
-struct Order {
-  // Add member variables and methods as needed
-};
+namespace tw::delivery {
+  struct Order {
+    // Add member variables and methods as needed
+  };
+}
